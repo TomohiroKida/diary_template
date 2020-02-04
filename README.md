@@ -1,9 +1,9 @@
-# diary tempalte with interpreter
+﻿# diary tempalte with interpreter
 
-$B$3$l$OBPOC%Y!<%9$GF|;o$r=q$/%7%9%F%`$G$"$k!%(B
-$B9%$-$J%(%G%#%?(B (vim or emacs) $B$GF|;o$r=q$-!$(B
-$BF|;o$r=q$$$?2s?t$d9g7WBZ:_;~4V$r3NG'$9$k$3$H$,$G$-$k!%(B
-$BBPOC%Y!<%9$G!$F|;o$r=q$/G/7nF|$,@5$7$$$+$I$&$+$r3NG'$9$k!%(B
+これは対話ベースで日誌を書くシステムである．
+好きなエディタ (vim or emacs) で日誌を書き，
+日誌を書いた回数や合計滞在時間を確認することができる．
+対話ベースで，日誌を書く年月日が正しいかどうかを確認する．
 
 ## diary file format
 1. year-month-day-week
@@ -15,17 +15,17 @@
 
 # system
 
-./year/month/day $B$H$$$&4IM}$K$J$C$F$$$k!%(B
-$B4pK\E*$K$=$NF|$N%U%!%$%k$O$=$NF|$K$7$+JT=8$G$-$J$$!%(B
-$B:G6aJT=8$7$?(B day $B%U%!%$%k$O(B .now $B%j%s%/%U%!%$%k$KD%$i$l$F$*$j!$(B
-$B<!$NF|$O!$(B.now $B%j%s%/%U%!%$%k$r%Y!<%9$K(B day count $B$r%$%s%/%j%a%s%H$9$k!%(B
+./year/month/day という管理になっている．
+基本的にその日のファイルはその日にしか編集できない．
+最近編集した day ファイルは .now リンクファイルに張られており，
+次の日は，.now リンクファイルをベースに day count をインクリメントする．
 
 # usage
 
 1. ./diary.sh
-2. $BI=<($5$l$?F|$,@5$7$$$+Ez$($k(B ( y/n
-3. $B$b$7!$(Bno $B$HEz$($?>l9g$O!$:rF|$NF|IU$H$7$FEPO?$5$l$k(B
-4. $B$3$NF|$NF|;o%U%!%$%k$r:n@.$7$F$$$$$+Ez$($k(B ( return or ^C
-5. $B$b$7!$$=$NG/!$7n$N%G%#%l%/%H%j$,$J$$>l9g$O:n$C$F$h$$$+J9$+$l$k(B ( return or ^C
-6. $B$=$NF|$NF|;o$rJT=8$9$k(B
-7. $BL@F|$K$J$C$?$i!$(B1 $B$XLa$k(B
+2. 表示された日が正しいか答える ( y/n
+3. もし，no と答えた場合は，昨日の日付として登録される
+4. この日の日誌ファイルを作成していいか答える ( return or ^C
+5. もし，その年，月のディレクトリがない場合は作ってよいか聞かれる ( return or ^C
+6. その日の日誌を編集する
+7. 明日になったら，1 へ戻る
